@@ -14,7 +14,7 @@ setup() {
     const loadingWeather = ref(false);
     const weatherData = ref([]);
     const calcExpression = ref(''); 
-    const calcJpy = ref(0);
+    const calcTWD = ref(0);
     const selectedImageUrl = ref('');
     const isSyncing = ref(false);
     const initialLoadedCount = ref(0);
@@ -29,7 +29,7 @@ setup() {
     
     const githubConfig = ref(JSON.parse(localStorage.getItem('github_config')) || { owner: '', repo: '', token: '' });
     const exchangeRates = ref(JSON.parse(localStorage.getItem('exchange_rates')) || {
-        baMa: 0.05511, fei: 0.0541019, yee: 0.051558
+        baMa: 0.05511, fei: 0.26, yee: 0.051558
     });
 
     const scheduleData = ref({});
@@ -100,14 +100,14 @@ setup() {
         calcExpression.value += char;
         updateCalcResult();
     };
-    const calcClear = () => { calcExpression.value = ''; calcJpy.value = 0; };
+    const calcClear = () => { calcExpression.value = ''; calcTWD.value = 0; };
     const calcBackspace = () => { calcExpression.value = calcExpression.value.slice(0, -1); updateCalcResult(); };
-    const calcResult = () => { updateCalcResult(); calcExpression.value = calcJpy.value.toString(); };
+    const calcResult = () => { updateCalcResult(); calcExpression.value = calcTWD.value.toString(); };
     const updateCalcResult = () => {
-        if (!calcExpression.value) { calcJpy.value = 0; return; }
+        if (!calcExpression.value) { calcTWD.value = 0; return; }
         try {
             const result = new Function(`return ${calcExpression.value}`)();
-            if (isFinite(result)) calcJpy.value = Math.max(0, Math.round(result));
+            if (isFinite(result)) calcTWD.value = Math.max(0, Math.round(result));
         } catch (e) {}
     };
 
@@ -286,7 +286,7 @@ setup() {
     return {
         currentTab, showSettings, showAddSchedule, showAddShopItem, showAddExpense, selectedDate, dateRange, shopCategories, shopFilter, githubConfig,
         newScheduleItem, editingScheduleId, newShopItem, editingShopId, newExpense, editingExpenseId, peopleConfigs,
-        showWeatherModal, showCalcModal, showImageModal, selectedImageUrl, previewImage, loadingWeather, weatherData, calcExpression, calcJpy, exchangeRates, openWeather,
+        showWeatherModal, showCalcModal, showImageModal, selectedImageUrl, previewImage, loadingWeather, weatherData, calcExpression, calcTWD, exchangeRates, openWeather,
         isSyncing, calcAppend, calcClear, calcBackspace, calcResult,
         activeTabTitle: computed(() => ({'schedule':'行程','map':'地圖','shopping':'清單','expense':'支出'}[currentTab.value])),
         mapSrc: computed(() => mapMode.value === 'mymap' ? myMapUrl : `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery.value)}&output=embed`),
