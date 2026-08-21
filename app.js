@@ -117,7 +117,7 @@ setup() {
         if (weatherData.value.length > 0) return;
         loadingWeather.value = true;
         try {
-            const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.6895&longitude=139.6917&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo');
+            const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=25.0478&longitude=121.5319&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTaipei');
             const data = await res.json();
             weatherData.value = data.daily.time.map((t, i) => ({
                 date: t.split('-').slice(1).join('/'),
