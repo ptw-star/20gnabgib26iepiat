@@ -277,7 +277,7 @@
         <div v-if="showWeatherModal" class="fixed inset-0 z-[70] bg-black/60 backdrop-blur-sm flex items-center justify-center p-6">
             <div class="bg-white w-full max-w-sm rounded-[2.5rem] p-6 relative shadow-2xl">
                 <div class="flex justify-between items-center border-b border-gray-50 pb-2 mb-4">
-                    <h2 class="font-bold text-gray-700">東京天氣預報</h2>
+                    <h2 class="font-bold text-gray-700">台北天氣預報</h2>
                     <button @click="showWeatherModal = false" class="text-gray-400"><i data-lucide="x"></i></button>
                 </div>
                 <div v-if="loadingWeather" class="py-12 flex flex-col items-center gap-3"><div class="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div></div>
@@ -301,12 +301,12 @@
                 </div>
                 <div class="bg-gray-50 p-4 rounded-3xl text-right space-y-1">
                     <div class="text-xs text-gray-400 h-4">{{ calcExpression || '0' }}</div>
-                    <div class="text-3xl font-black text-primary truncate">¥ {{ calcJpy }}</div>
+                    <div class="text-3xl font-black text-primary truncate">¥ {{ calcTWD }}</div>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
-                    <div class="bg-[#ECE9E4]/60 p-2 rounded-2xl text-center"><div class="text-[9px] font-bold text-gray-400">爸媽</div><div class="text-sm font-black text-gray-700">${{(calcJpy * exchangeRates.baMa).toFixed(2)}}</div></div>
-                    <div class="bg-[#E9EBE2]/60 p-2 rounded-2xl text-center"><div class="text-[9px] font-bold text-gray-400">妃</div><div class="text-sm font-black text-gray-700">${{(calcJpy * exchangeRates.fei).toFixed(2)}}</div></div>
-                    <div class="bg-[#EFE2DE]/60 p-2 rounded-2xl text-center"><div class="text-[9px] font-bold text-gray-400">而</div><div class="text-sm font-black text-gray-700">${{(calcJpy * exchangeRates.yee).toFixed(2)}}</div></div>
+                    <div class="bg-[#ECE9E4]/60 p-2 rounded-2xl text-center"><div class="text-[9px] font-bold text-gray-400">爸媽</div><div class="text-sm font-black text-gray-700">${{(calcTWD * exchangeRates.baMa).toFixed(2)}}</div></div>
+                    <div class="bg-[#E9EBE2]/60 p-2 rounded-2xl text-center"><div class="text-[9px] font-bold text-gray-400">妃</div><div class="text-sm font-black text-gray-700">${{(calcTWD * exchangeRates.fei).toFixed(2)}}</div></div>
+                    <div class="bg-[#EFE2DE]/60 p-2 rounded-2xl text-center"><div class="text-[9px] font-bold text-gray-400">而</div><div class="text-sm font-black text-gray-700">${{(calcTWD * exchangeRates.yee).toFixed(2)}}</div></div>
                 </div>
                 <div class="grid grid-cols-4 gap-2">
                     <button v-for="b in ['C','/','*','del','7','8','9','-','4','5','6','+','1','2','3','=','0','.']" @click="b==='C'?calcClear():b==='del'?calcBackspace():b==='='?calcResult():calcAppend(b)" :class="{'bg-red-50 text-red-400':b==='C','bg-primary text-white row-span-2':b==='=','col-span-2':b==='0'}" class="bg-gray-50 font-bold p-4 rounded-2xl active:scale-95 flex items-center justify-center">
