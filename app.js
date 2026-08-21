@@ -20,11 +20,11 @@ setup() {
     const initialLoadedCount = ref(0);
 
     const selectedDate = ref(null);
-    const mapQuery = ref('東京');
+    const mapQuery = ref('台北');
     const mapMode = ref('normal');
     const myMapUrl = 'https://www.google.com/maps/d/embed?mid=1BH1Wp-fTNOady5xFfHqKO5MSHP2hNOM&ehbc=2E312F&noprof=1';
-    const dateRange = ['29/3', '30/3', '31/3', '1/4', '2/4', '3/4', '4/4', '5/4', '6/4', '7/4'];
-    const shopCategories = ['3COINS', 'LOFT', '藥妝', '百貨公司', '便利店', '超市', '其他'];
+    const dateRange = ['10/10', '11/10', '12/10'];
+    const shopCategories = ['藥妝', '百貨公司', '便利店', '超市', '誠品', '其他'];
     const shopFilter = ref('all');
     
     const githubConfig = ref(JSON.parse(localStorage.getItem('github_config')) || { owner: '', repo: '', token: '' });
@@ -36,11 +36,11 @@ setup() {
     const shoppingList = ref([]);
     const expenseList = ref([]);
 
-    const newScheduleItem = ref({ date: '29/3', time: '09:00', title: '', category: '', estPersonal: null, estShared: null, address: '', desc: '' });
+    const newScheduleItem = ref({ date: '10/10', time: '09:00', title: '', category: '', estPersonal: null, estShared: null, address: '', desc: '' });
     const editingScheduleId = ref(null);
     const newShopItem = ref({ name: '', store: '', category: '其他', image: null });
     const editingShopId = ref(null);
-    const newExpense = ref({ type: 'expense', date: '29/3', person: '公數', method: '現金', title: '', amount: null });
+    const newExpense = ref({ type: 'expense', date: '10/10', person: '公數', method: '現金', title: '', amount: null });
     const editingExpenseId = ref(null);
 
     const peopleConfigs = [
