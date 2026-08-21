@@ -118,12 +118,12 @@
 
             <div class="mt-10 p-5 bg-white rounded-3xl border border-dashed border-gray-300 space-y-3 shadow-sm">
                 <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">預計支出</h4>
-                <div class="flex justify-between items-center"><span class="text-sm text-gray-600">交通</span><span class="text-base font-black text-primary">¥ {{ Math.round(totalEstTransportPersonal) }}</span></div>
-                <div class="flex justify-between items-center"><span class="text-sm text-gray-600">飲食</span><span class="text-base font-black text-secondary">¥ {{ Math.round(totalEstDiningPersonal) }}</span></div>
-                <div class="flex justify-between items-center"><span class="text-sm text-gray-600">景點</span><span class="text-base font-black text-sage">¥ {{ Math.round(totalEstAttractionsPersonal) }}</span></div>
-                <div class="flex justify-between items-center"><span class="text-sm text-gray-600">住宿</span><span class="text-base font-black text-[#607D8B]">¥ {{ Math.round(totalEstAccommodationPersonal) }}</span></div>
+                <div class="flex justify-between items-center"><span class="text-sm text-gray-600">交通</span><span class="text-base font-black text-primary">$ {{ Math.round(totalEstTransportPersonal) }}</span></div>
+                <div class="flex justify-between items-center"><span class="text-sm text-gray-600">飲食</span><span class="text-base font-black text-secondary">$ {{ Math.round(totalEstDiningPersonal) }}</span></div>
+                <div class="flex justify-between items-center"><span class="text-sm text-gray-600">景點</span><span class="text-base font-black text-sage">$ {{ Math.round(totalEstAttractionsPersonal) }}</span></div>
+                <div class="flex justify-between items-center"><span class="text-sm text-gray-600">住宿</span><span class="text-base font-black text-[#607D8B]">$ {{ Math.round(totalEstAccommodationPersonal) }}</span></div>
                 <div class="h-[1px] bg-gray-100"></div>
-                <div class="flex justify-between items-center pt-1"><span class="text-sm font-bold text-gray-700">每人合共</span><span class="text-lg font-black text-gray-700">¥ {{ Math.round(totalEstTransportPersonal + totalEstDiningPersonal + totalEstAttractionsPersonal + totalEstAccommodationPersonal) }}</span></div>
+                <div class="flex justify-between items-center pt-1"><span class="text-sm font-bold text-gray-700">每人合共</span><span class="text-lg font-black text-gray-700">$ {{ Math.round(totalEstTransportPersonal + totalEstDiningPersonal + totalEstAttractionsPersonal + totalEstAccommodationPersonal) }}</span></div>
             </div>
         </section>
 
@@ -301,7 +301,7 @@
                 </div>
                 <div class="bg-gray-50 p-4 rounded-3xl text-right space-y-1">
                     <div class="text-xs text-gray-400 h-4">{{ calcExpression || '0' }}</div>
-                    <div class="text-3xl font-black text-primary truncate">¥ {{ calcTWD }}</div>
+                    <div class="text-3xl font-black text-primary truncate">$ {{ calcTWD }}</div>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
                     <div class="bg-[#ECE9E4]/60 p-2 rounded-2xl text-center"><div class="text-[9px] font-bold text-gray-400">爸媽</div><div class="text-sm font-black text-gray-700">${{(calcTWD * exchangeRates.baMa).toFixed(2)}}</div></div>
