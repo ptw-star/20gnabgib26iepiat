@@ -206,7 +206,7 @@ setup() {
             scheduleData.value[date].push({ ...newScheduleItem.value, id: Date.now() });
         }
         scheduleData.value[date].sort((a, b) => a.time.localeCompare(b.time));
-        newScheduleItem.value = { date: '29/3', time: '09:00', title: '', category: '', estPersonal: null, estShared: null, address: '', desc: '' };
+        newScheduleItem.value = { date: '10/10', time: '09:00', title: '', category: '', estPersonal: null, estShared: null, address: '', desc: '' };
         showAddSchedule.value = false; 
         syncToGitHub(true); 
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -233,7 +233,7 @@ setup() {
             if(idx !== -1) expenseList.value[idx] = { ...newExpense.value, id: editingExpenseId.value };
             editingExpenseId.value = null;
         } else { expenseList.value.push({ ...newExpense.value, id: Date.now() }); }
-        newExpense.value = { type: 'expense', date: '29/3', person: '公數', method: '現金', title: '', amount: null };
+        newExpense.value = { type: 'expense', date: '10/10', person: '公數', method: '現金', title: '', amount: null };
         showAddExpense.value = false; 
         syncToGitHub(true); 
     };
@@ -249,7 +249,7 @@ setup() {
         lucide.createIcons(); 
         const now = new Date();
         const todayStr = `${now.getDate()}/${now.getMonth() + 1}`;
-        const targetDate = dateRange.includes(todayStr) ? todayStr : '29/3';
+        const targetDate = dateRange.includes(todayStr) ? todayStr : '10/10';
         newExpense.value.date = targetDate;
         nextTick(() => {
             setTimeout(() => {
@@ -265,7 +265,7 @@ setup() {
             // 切換回行程頁：再次觸發自動跳轉
             const now = new Date();
             const todayStr = `${now.getDate()}/${now.getMonth() + 1}`;
-            const targetDate = dateRange.includes(todayStr) ? todayStr : '29/3';
+            const targetDate = dateRange.includes(todayStr) ? todayStr : '10/10';
             nextTick(() => {
                 scrollToDate(targetDate);
             });
