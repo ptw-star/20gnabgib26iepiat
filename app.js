@@ -22,7 +22,7 @@ setup() {
     const selectedDate = ref(null);
     const mapQuery = ref('台北');
     const mapMode = ref('normal');
-    const myMapUrl = 'https://www.google.com/maps/d/embed?mid=1bv4ZfHqIAu2Nc-87300fjkg-Sxc&usp=sharing';
+    const myMapUrl = 'https://www.google.com/maps/d/embed?mid=1hKD5Mc1JW1nZt39wn68z7ZUSLYTEe_s&ehbc=2E312F&noprof=1';
     const dateRange = ['10/10', '11/10', '12/10'];
     const shopCategories = ['藥妝', '百貨公司', '便利店', '超市', '誠品', '其他'];
     const shopFilter = ref('all');
